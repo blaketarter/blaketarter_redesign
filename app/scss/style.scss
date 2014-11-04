@@ -1,0 +1,139 @@
+$blue: #3996D9;
+$yellow: #F2BB13;
+$teal: #01BE9E;
+$red: #F24444;
+$dingy: #495B6A;
+$white: #ffffff;
+$black: #333333;
+
+$modal: 1000;
+$nav: 100;
+
+$mega: 80px;
+$mini: 50px;
+
+$trans: 0.3s ease;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $mega;
+  z-index: $nav;
+
+  background-color: $blue;
+  border-bottom: 3px solid darken($blue, 10%);;
+  color: $white;
+
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+  -moz-box-shadow:    0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+  box-shadow:         0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+
+  .default-nav {
+    height: $mega;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    .main-nav {
+      position: absolute;
+      left: 10%;
+      width: 60%;
+      height: $mega;
+      top: 0;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+
+      .main-nav-item {
+        float: left;
+        height: $mega;
+        margin-right: 50px;
+        position: relative;
+
+        text-align: center;
+        line-height: $mega;
+
+        &:first-child {
+          &::before {
+            content: '';
+          }
+        }
+
+        &::before {
+          content: '•';
+          color: darken($blue, 10%);
+          position: absolute;
+          left: -25px;
+        }
+
+        &.selected {
+          border-bottom: 3px solid darken($blue, 35%);;
+
+          transition: $trans;
+        }
+
+        &:hover {
+          color: darken($white, 5%);
+          cursor: pointer;
+          border-bottom: 3px solid darken($blue, 25%);;
+
+          transition: $trans;
+        }
+
+        transition: $trans;
+      }
+    }
+
+    .social-nav {
+      list-style: none;
+
+      .social-nav-item {
+
+      }
+    }
+  }
+
+  &.mini {
+    height: $mini;
+
+    .default-nav {
+      height: $mini;
+
+      .main-nav {
+        height: $mini;
+
+        .main-nav-item {
+          height: $mini;
+          line-height: $mini;
+        }
+      }
+    }
+
+    transition: $trans;
+  }
+
+  transition: $trans;
+}
+
+.container {
+  margin-top: 80px;
+  color: $black;
+}
+
+.footer {
+
+}
+
+
+body {
+  height: 1000px;
+}
