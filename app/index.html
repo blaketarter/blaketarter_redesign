@@ -2,7 +2,7 @@
 <html class="no-js" lang="en" data-ng-app="bt">
 
     <head>
-        <!-- <base href="/app"> -->
+        <!-- <base href="/app/"> -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Blake Tarter</title>
@@ -19,14 +19,14 @@
     </head>
 
     <body>
-        <div id="nav" class="nav" data-ng-controller="navController">
+        <nav id="nav" class="nav" data-ng-controller="navController">
             <div class="default-nav">
                 <div class="logo"></div>
                 <ul class="main-nav">
-                    <li class="main-nav-item selected">Home</li>
-                    <li class="main-nav-item">About</li>
-                    <li class="main-nav-item">Work</li>
-                    <li class="main-nav-item">Blog</li>
+                    <li class="main-nav-item {{(selected === 'home' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#home">Home</a></li>
+                    <li class="main-nav-item {{(selected === 'about' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#about">About</a></li>
+                    <li class="main-nav-item {{(selected === 'work' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#work">Work</a></li>
+                    <li class="main-nav-item {{(selected === 'blog' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#blog">Blog</a></li>
                 </ul>
                 <ul class="social-nav">
                     <li class="social-nav-item"></li>
@@ -35,13 +35,15 @@
                     <li class="social-nav-item"></li>
                 </ul>
             </div>
-        </div>
+            <div id="sub-nav" class="sub-nav">
+            </div>
+        </nav>
 
         <div class="container" data-ng-view>
         </div>
 
-        <div data-ng-controller="footerController">
-        </div>
+        <footer data-ng-controller="footerController">
+        </footer>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular-route.min.js"></script>
