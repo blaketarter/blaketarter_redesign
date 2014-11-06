@@ -25,7 +25,7 @@ bt.controller('homeController', function($scope, $timeout) {
       s = 0,
       sl = skillset.length;
 
-      // e = element to scroll to, d = time to scroll in ms
+  // e = element to scroll to, d = time to scroll in ms
   function scrollTo(e,d){if(d<0)return;var h=document.documentElement;if(h.scrollTop===0){var t=h.scrollTop;++h.scrollTop;h=t+1===h.scrollTop--?h:document.body;}if(typeof e==="object")e=e.offsetTop;scrollToX(h,h.scrollTop,e,0,1/d,20);}function scrollToX(e,a,b,t,v,s){if(t<0||t>1||v<=0)return;k=t-1;e.scrollTop=a-(a-b)*(k*k*k+1);t+=v*s;setTimeout(function(){scrollToX(e,a,b,t,v,s);},s);}
 
   function chooseSkillSet(init) {
@@ -71,10 +71,28 @@ bt.controller('homeController', function($scope, $timeout) {
 
   $scope.scroll = function(elId) {
     var el = document.getElementById(elId);
-
-
-
     scrollTo(el.offsetTop - 90, 500);
+  }
+
+  $scope.fun = function(e) {
+    var x = e.offsetX, y = e.offsetY,
+        el = document.createElement('div'),
+        fun = document.getElementById('fun');
+
+    el.className = 'fun-dot';
+    el.setAttribute('style', 'top: ' + y + 'px; left: ' + x + 'px;');
+
+    fun.appendChild(el);
+
+    $timeout(function() {
+      el.setAttribute('style', 'top: ' + y + 'px; left: ' + x + 'px; border-width: ' + fun.offsetWidth + 'px;');
+      $timeout(function() {
+        el.setAttribute('style', 'top: ' + y + 'px; left: ' + x + 'px; border-width: ' + fun.offsetWidth + 'px; opacity: 0;')
+        $timeout(function() {
+          fun.removeChild(el);
+        }, 1000);
+      }, 500);
+    }, 10);
   }
 
   chooseSkillSet(true);
