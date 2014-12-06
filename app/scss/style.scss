@@ -72,11 +72,11 @@ $trans: 0.3s ease;
 }
 
 ::selection {
-  background: transparentize(darken($teal, 20%), 0.4);
+  background: transparentize(darken($blue, 20%), 0.4);
 }
 
 ::-moz-selection {
-  background: transparentize(darken($teal, 20%), 0.4);
+  background: transparentize(darken($blue, 20%), 0.4);
 }
 
 body {
@@ -91,8 +91,8 @@ body {
   line-height: $mini;
   border-radius: 0;
   text-decoration: none;
-  color: $white;
-  background-color: $dingy;
+  color: $black;
+  background-color: $white;
 
   -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);
   -moz-box-shadow:    0px 3px 3px 0px rgba(50, 50, 50, 0.1);
@@ -107,7 +107,7 @@ body {
   }
 
   &:hover {
-    background-color: darken($dingy, 5%);
+    background-color: darken($white, 10%);
     transform: translateY(-2px);
     -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);
     -moz-box-shadow:    0px 3px 3px 0px rgba(50, 50, 50, 0.5);
@@ -134,22 +134,22 @@ body {
     top: 0;
     z-index: $nav + 10;
 
-    background-color: $blue;
-    border-bottom: 3px solid darken($blue, 10%);;
+    // background-color: $blue;
+    // border-bottom: 3px solid darken($blue, 10%);
     color: $white;
 
-    -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);
-    -moz-box-shadow:    0px 3px 3px 0px rgba(50, 50, 50, 0.1);
-    box-shadow:         0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+    // -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+    // -moz-box-shadow:    0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+    // box-shadow:         0px 3px 3px 0px rgba(50, 50, 50, 0.1);
 
     .main-nav {
-      position: absolute;
-      left: 10%;
+      position: relative;
+      // left: 10%;
       width: 60%;
       height: $mega;
-      top: 0;
+      // top: 0;
 
-      margin: 0;
+      margin: 0 auto;
       padding: 0;
 
       list-style: none;
@@ -157,8 +157,9 @@ body {
       .main-nav-item {
         float: left;
         height: $mega;
-        margin-right: 50px;
+        // margin-right: 50px;
         position: relative;
+        width: 25%;
 
         // text-align: center;
         line-height: $mega;
@@ -185,21 +186,23 @@ body {
 
         &::before {
           content: '•';
-          color: darken($blue, 10%);
+          // color: darken($blue, 10%);
+          color: $white;
           position: absolute;
           left: -25px;
         }
 
         &.selected {
-          border-bottom: 3px solid darken($blue, 35%);;
+          // border-bottom: 3px solid darken($blue, 35%);
+          // border-bottom: 3px solid $white;
 
           transition: $trans;
         }
 
         &:hover {
-          color: darken($white, 5%);
+          // color: darken($white, 5%);
           cursor: pointer;
-          border-bottom: 3px solid darken($blue, 25%);;
+          // border-bottom: 3px solid transparentize($white, 0.5);
 
           transition: $trans;
         }
@@ -239,21 +242,23 @@ body {
   }
 
   &.mini {
-    height: $mini;
+    // height: $mini;
 
     .default-nav {
-      height: $mini;
+      // height: $mini;
+      background-color: transparentize($blue, 0.1);
+      // border-bottom: 3px solid darken($blue, 10%);
 
       .main-nav {
-        height: $mini;
+        // height: $mini;
 
         .main-nav-item {
-          height: $mini;
-          line-height: $mini;
+          // height: $mini;
+          // line-height: $mini;
 
           .main-nav-item-link {
-            height: $mini;
-            line-height: $mini;
+            // height: $mini;
+            // line-height: $mini;
           }
         }
       }
@@ -287,13 +292,13 @@ body {
         width: 100vw;
       }
 
-      // background: url(../img/hero.jpg) no-repeat center center fixed;
+      background: url(../img/hero.png) no-repeat center center fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
 
-      border-bottom: 3px solid $dingy;
+      // border-bottom: 3px solid $dingy;
 
       &::before {
         content: '';
@@ -304,7 +309,14 @@ body {
         bottom: 0;
         left: 0;
 
-        background-color: $teal;
+        // background-color: $teal;
+        background: $blue;
+        background: -moz-radial-gradient(center, ellipse cover, $blue 0%, darken($blue, 25%) 100%);
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, $blue), color-stop(100%, darken($blue, 25%)));
+        background: -webkit-radial-gradient(center, ellipse cover, $blue 0%, darken($blue, 25%) 100%);
+        background: -o-radial-gradient(center, ellipse cover, $blue 0%, darken($blue, 25%) 100%);
+        background: -ms-radial-gradient(center, ellipse cover, $blue 0%, darken($blue, 25%) 100%);
+        background: radial-gradient(ellipse at center, $blue 0%, darken($blue, 25%) 100%);
         opacity: 0.9;
       }
 
@@ -314,11 +326,14 @@ body {
         -webkit-transform: translateY(-50%);
         transform: translateY(-50%);
         margin-top: -80px;
+
+        width: 100%;
+        text-align: center;
       }
 
       .name {
         position: relative;
-        margin-left: 10%;
+        // margin-left: 10%;
         margin-top: 200px;
 
         font-size: 64px;
@@ -327,7 +342,7 @@ body {
 
       .quick-about {
         position: relative;
-        margin-left: 10%;
+        // margin-left: 10%;
 
         font-size: 48px;
         color: $white;
@@ -335,24 +350,24 @@ body {
 
       .know {
         position: relative;
-        margin-left: 10%;
+        // margin-left: 10%;
 
         font-size: 36px;
         color: $white;
 
         .skill {
-          color: darken($teal, 20%);
+          color: darken($blue, 20%);
 
-          -webkit-box-shadow: inset 0px 0px 0px 0px rgba(0, 89, 74, 0.6);
-          -moz-box-shadow:    inset 0px 0px 0px 0px rgba(0, 89, 74, 0.6);
-          box-shadow:         inset 0px 0px 0px 0px rgba(0, 89, 74, 0.6);
+          -webkit-box-shadow: inset 0px 0px 0px 0px transparentize($blue, 0.4);
+          -moz-box-shadow:    inset 0px 0px 0px 0px transparentize($blue, 0.4);
+          box-shadow:         inset 0px 0px 0px 0px transparentize($blue, 0.4);
 
           transition: $trans;
         }
       }
 
       .about {
-        margin-left: 10%;
+        // margin-left: 10%;
       }
 
       .work {
@@ -375,7 +390,7 @@ body {
           line-height: $mini;
           text-align: center;
 
-          background-color: $yellow;
+          background-color: $blue;
           color: $white;
           font-size: 24px;
 
@@ -386,7 +401,7 @@ body {
           &:hover {
             cursor: pointer;
 
-            background-color: darken($yellow, 2%);
+            background-color: darken($blue, 2%);
             transform: translateY(-2px);
             -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);
             -moz-box-shadow:    0px 3px 3px 0px rgba(50, 50, 50, 0.5);
@@ -403,28 +418,31 @@ body {
       padding-top: 50px;
       padding-bottom: 175px;
       background-color: $white;
+      text-align: center;
 
-      @supports (background-blend-mode: overlay) {
-        background: url(../img/hero.png) no-repeat center center fixed;
-        background-color: transparentize($white, 0.1);
-
-        background-blend-mode: overlay;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-      }
+      // @supports (background-blend-mode: overlay) {
+      //   background: url(../img/hero.png) no-repeat center center fixed;
+      //   background-color: transparentize($white, 0.1);
+      //
+      //   background-blend-mode: overlay;
+      //   -webkit-background-size: cover;
+      //   -moz-background-size: cover;
+      //   -o-background-size: cover;
+      //   background-size: cover;
+      // }
 
       .brief-header {
-        margin-left: 10%;
+        // margin-left: 10%;
         margin-top: 0;
         font-size: 36px;
       }
 
       .little-about {
-        margin-left: 10%;
+        // margin-left: 10%;
+        text-align: center;
         font-size: 24px;
         width: 60%;
+        margin: 0 auto;
       }
     }
 
@@ -432,8 +450,12 @@ body {
       position: relative;
       padding-bottom: 50px;
       padding-top: 175px;
-      background-color: $yellow;
+      // background-color: $teal;
+      // color: $white;
+
+      background: $white;
       color: $black;
+      text-align: center;
 
       height: 600px; //temp, plz remove
 
@@ -444,6 +466,7 @@ body {
         width: 60%;
         height: 250px;
         background-color: $blue;
+        display: none;
 
         overflow: hidden;
 
@@ -490,7 +513,7 @@ body {
       }
 
       .skills-header {
-        margin-left: 10%;
+        // margin-left: 10%;
         margin-top: 0;
         font-size: 36px;
       }
@@ -501,12 +524,16 @@ body {
         margin-left: 10%;
         width: 80%;
         position: relative;
+        color: $black;
 
         .skill-item {
           height: 250px;
           width: 30%;
           float: left;
-          background-color: $white;
+          // background-color: $white;
+          background: $blue;
+          color: $white;
+
           padding: 25px;
 
           list-style: none;
@@ -529,7 +556,7 @@ body {
           &:hover {
             cursor: pointer;
 
-            background-color: darken($white, 2%);
+            background-color: darken($blue, 2%);
             transform: translateY(-2px);
             -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);
             -moz-box-shadow:    0px 3px 3px 0px rgba(50, 50, 50, 0.5);

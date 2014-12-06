@@ -48,6 +48,13 @@ var bt = angular
 
               navCheck();
 
+              outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'transform',
+                languagePath: ''
+              })
+
               window.onscroll = navCheck;
             });
          });
