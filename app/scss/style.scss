@@ -178,6 +178,9 @@ body {
           text-decoration: none;
           color: inherit;
 
+          text-transform: uppercase;
+          // font-weight: 300;
+
           transition: 0.3s ease transform;
         }
 
@@ -195,11 +198,35 @@ body {
         //   left: -25px;
         // }
 
+        // &:before {
+        //   content: '';
+        //   position: absolute;
+        //   top: 50%;
+        //   left: 50%;
+        //   height: 0px;
+        //   width: 0px;
+        //   border-radius: 50%;
+        //   background-color: $blue;
+        //   opacity: 0.5;
+        //
+        //   transform: translate(-50%, -50%);
+        //
+        //   transition: $trans;
+        // }
+
         &.selected {
           // border-bottom: 3px solid darken($blue, 35%);
           // border-bottom: 3px solid $white;
+          // color: $white;
 
-          transition: 0.3s ease transform;
+          // &:before {
+          //   height: 15px;
+          //   width: 15px;
+          //
+          //   transition: $trans;
+          // }
+
+          transition: $trans;
         }
 
         &:hover {
@@ -267,6 +294,8 @@ body {
           }
         }
       }
+
+      transition: 0.3s ease transform;
     }
 
     .sub-nav {
@@ -761,9 +790,4 @@ body {
 
 .footer {
 
-}
-
-
-body {
-  height: 5000px;
 }

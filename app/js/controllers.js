@@ -71,7 +71,7 @@ bt.controller('homeController', function($scope, $timeout, $sce) {
 
   $scope.scroll = function(elId) {
     var el = document.getElementById(elId);
-    scrollTo(el.offsetTop, 500);
+    scrollTo(el.offsetTop + 10, 500);
   }
 
 
@@ -144,9 +144,9 @@ bt.controller('homeController', function($scope, $timeout, $sce) {
 
   $scope.codepen = ['1', '2', '3', '4', '5', '6'];
 
-  $timeout(function() {
-    sendRequest('http://codepen.io/blaketarter/popular/feed/', displayCodepen);
-  }, 500);
+  // $timeout(function() {
+  //   sendRequest('http://codepen.io/blaketarter/popular/feed/', displayCodepen);
+  // }, 500);
 
   // sendRequest('http://codepen.io/blaketarter/activity/feed/', displayCodepenActivity);
 

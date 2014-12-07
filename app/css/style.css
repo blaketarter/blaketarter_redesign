@@ -134,9 +134,10 @@ body {
           line-height: 80px;
           text-decoration: none;
           color: inherit;
+          text-transform: uppercase;
           transition: 0.3s ease transform; }
         .nav .default-nav .main-nav .main-nav-item.selected {
-          transition: 0.3s ease transform; }
+          transition: 0.3s ease; }
         .nav .default-nav .main-nav .main-nav-item:hover {
           cursor: pointer;
           transition: 0.3s ease transform; }
@@ -162,7 +163,8 @@ body {
       background-color: rgba(255, 255, 255, 0.9);
       color: #333333;
       transform: translateY(0px);
-      margin-top: 0px; }
+      margin-top: 0px;
+      transition: 0.3s ease transform; }
     .nav.mini .sub-nav {
       top: 50px; }
 
@@ -478,8 +480,5 @@ body {
               .container .home-wrapper .codepen .show .pen .inner:hover:after {
                 opacity: 1;
                 transition: 0.3s ease; }
-
-body {
-  height: 5000px; }
 
 /*# sourceMappingURL=style.css.map */
