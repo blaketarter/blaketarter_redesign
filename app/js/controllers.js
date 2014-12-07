@@ -142,13 +142,17 @@ bt.controller('homeController', function($scope, $timeout, $sce) {
       return xmlhttp;
   }
 
-  // sendRequest('http://codepen.io/blaketarter/public/feed/', displayCodepen);
+  $scope.codepen = ['1', '2', '3', '4', '5', '6'];
+
+  $timeout(function() {
+    sendRequest('http://codepen.io/blaketarter/popular/feed/', displayCodepen);
+  }, 500);
 
   // sendRequest('http://codepen.io/blaketarter/activity/feed/', displayCodepenActivity);
 
   function displayCodepen(data) {
       var cpdoc = data.responseXML,
-          items = cpdoc.getElementsByTagName('item'),
+          items = [].slice.call(cpdoc.getElementsByTagName('item'), 0, 6),
           parsedXML = [].map.call(items, function(el, i) {
             return {
               title: el.getElementsByTagName('title')[0].innerHTML,
@@ -161,7 +165,7 @@ bt.controller('homeController', function($scope, $timeout, $sce) {
             }
           });
 
-      $scope.codepen = parsedXML.slice(0, 4);
+      $scope.codepen = parsedXML.slice(0, 6);
       // console.log(parsedXML);
   }
 
@@ -183,6 +187,10 @@ bt.controller('homeController', function($scope, $timeout, $sce) {
 
     $scope.codepenActivity = parsedXML.slice(0, 4);
     console.log($scope.codepenActivity);
+  }
+
+  $scope.open = function(href) {
+    window.open(href, true);
   }
 });
 

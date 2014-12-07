@@ -54,7 +54,7 @@
     </div>
   </section>
 
-  <section id="skills" class="skills">
+  <!-- <section id="skills" class="skills">
     <div id="fun" class="fun" data-ng-click="fun($event)">
       <p class="click-me">Click Me</p>
     </div>
@@ -84,18 +84,26 @@
         </p>
       </li>
     </ul>
-  </section>
+  </section> -->
 
-  <section>
-    <div data-ng-repeat="pen in codepen">
-      <h1>{{pen.title}}</h1>
-      <a href="{{pen.link}}">{{pen.link}}</a>
-      <iframe src="{{pen.embed}}" width="100%" height="300"></iframe>
+  <section class="codepen">
+    <h2 class="title">My Codepens</h2>
+
+    <p class="desc">
+      Most of my personal experiments live on Codepen, if you haven't heard of it, <a href="http://www.codepen.io">Check it out</a>.
+    </p>
+
+    <div class="show">
+      <div data-ng-repeat="pen in codepen" class="pen" data-ng-click="open(pen.link)">
+        <iframe src="{{pen.embed}}" width="100%" height="200" class="preview"></iframe>
+        <div class="inner" data-title="{{pen.title}}">
+        </div>
+      </div>
     </div>
-    <div data-ng-repeat="activity in codepenActivity">
+    <!-- <div data-ng-repeat="activity in codepenActivity">
       <h1>{{activity.title}}</h1>
       {{activity.description}}
-      <!-- <iframe src="{{pen.embed}}" width="100%" height="300"></iframe> -->
-    </div>
+      <iframe src="{{pen.embed}}" width="100%" height="300"></iframe>
+    </div> -->
   </section>
 </section>

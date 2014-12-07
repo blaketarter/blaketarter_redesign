@@ -421,7 +421,7 @@ body {
       text-align: center;
 
       @supports(height: 100vh) {
-        height: 100vh;
+        min-height: 100vh;
         width: 100vw;
       }
 
@@ -460,7 +460,7 @@ body {
           width: 33%;
           height: 200px;
           overflow: hidden;
-          box-shadow: 0px 0px 0px $blue inset;
+          box-shadow: 0px -5px 0px $blue inset;
 
           .title {
             margin: 0;
@@ -626,6 +626,128 @@ body {
           }
 
           transition: $trans;
+        }
+      }
+    }
+
+    .codepen {
+      position: relative;
+      padding-top: 130px;
+      padding-bottom: 175px;
+      text-align: center;
+      background: $blue;
+      color: $white;
+
+      @supports(height: 100vh) {
+        min-height: 100vh;
+        width: 100vw;
+      }
+
+      .title {
+        margin-top: 0;
+        font-size: 36px;
+        color: $white;
+      }
+
+      .desc {
+        text-align: center;
+        font-size: 24px;
+        width: 60%;
+        margin: 0 auto;
+        color: $white;
+
+        a {
+          color: darken($blue, 15%);
+          text-decoration: none;
+        }
+      }
+
+      .show {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 50px;
+
+        .pen {
+          display: inline-block;
+          width: 33%;
+          height: 200px;
+          overflow: hidden;
+          padding: 12px;
+          position: relative;
+
+          .preview {
+            position: relative;
+            pointer-events: none;
+            height: 230px;
+            border: none;
+            background: $white;
+            margin-top: -50px;
+            -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+            -moz-box-shadow:    0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+            box-shadow:         0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+          }
+
+          .inner {
+            color: $white;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            .title {
+              display: none;
+            }
+
+            &:before {
+              content: '';
+              position: absolute;
+              background: darken($blue, 15%);
+              color: $white;
+              top: 50%;
+              left: 50%;
+              height: 0px;
+              width: 0px;
+              border-radius: 50%;
+              overflow: hidden;
+              opacity: 1;
+
+              transform: translate(-50%, -50%);
+
+              transition: $trans;
+            }
+
+            &:after {
+              content: attr(data-title);
+              opacity: 0;
+              color: $white;
+              text-align: center;
+              top: 50%;
+              position: absolute;
+              display: block;
+              width: 100%;
+
+              transform: translateY(-50%);
+
+              transition: $trans;
+            }
+
+            &:hover {
+              cursor: pointer;
+              &:before {
+                height: 500px;
+                width: 500px;
+
+                transition: $trans;
+              }
+
+              &:after {
+                opacity: 1;
+
+                transition: $trans;
+              }
+            }
+          }
         }
       }
     }
