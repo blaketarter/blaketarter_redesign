@@ -14,7 +14,7 @@ $mini: 50px;
 
 $trans: 0.3s ease;
 
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic);
 
 @font-face {
   font-family: 'fontello';
@@ -80,7 +80,7 @@ $trans: 0.3s ease;
 }
 
 body {
-  font-family: 'Montserrat', 'Helvetica', 'Arial', 'Sans Serif';
+  font-family: 'Roboto', 'Helvetica', 'Arial', 'Sans Serif';
 }
 
 .button {
@@ -178,19 +178,19 @@ body {
           transition: $trans;
         }
 
-        &:first-child {
-          &::before {
-            content: '';
-          }
-        }
-
-        &::before {
-          content: '•';
-          // color: darken($blue, 10%);
-          color: $white;
-          position: absolute;
-          left: -25px;
-        }
+        // &:first-child {
+        //   &::before {
+        //     content: '';
+        //   }
+        // }
+        //
+        // &::before {
+        //   content: '•';
+        //   // color: darken($blue, 10%);
+        //   color: $white;
+        //   position: absolute;
+        //   left: -25px;
+        // }
 
         &.selected {
           // border-bottom: 3px solid darken($blue, 35%);
@@ -415,10 +415,15 @@ body {
 
     .brief {
       position: relative;
-      padding-top: 50px;
+      padding-top: 130px;
       padding-bottom: 175px;
       background-color: $white;
       text-align: center;
+
+      @supports(height: 100vh) {
+        height: 100vh;
+        width: 100vw;
+      }
 
       // @supports (background-blend-mode: overlay) {
       //   background: url(../img/hero.png) no-repeat center center fixed;
@@ -443,6 +448,61 @@ body {
         font-size: 24px;
         width: 60%;
         margin: 0 auto;
+      }
+
+      .show {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 150px;
+
+        .tile {
+          display: inline-block;
+          width: 33%;
+          height: 200px;
+          overflow: hidden;
+          box-shadow: 0px 0px 0px $blue inset;
+
+          .title {
+            margin: 0;
+            padding: 0;
+            font-size: 100px;
+            color: $blue;
+            font-weight: 500;
+          }
+
+          .desc {
+            color: $blue;
+            opacity: 1;
+          }
+
+          .learn {
+            color: $white;
+            opacity: 0;
+          }
+
+          &:hover, &.active {
+            box-shadow: -0px -200px 0px $blue inset;
+            color: $white;
+            cursor: pointer;
+
+            .title {
+              color: $white;
+            }
+
+            .desc {
+              opacity: 0;
+            }
+
+            .learn {
+              opacity: 1;
+              margin-top: -40px;
+            }
+
+            transition: $trans;
+          }
+
+          transition: $trans;
+        }
       }
     }
 
