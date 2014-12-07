@@ -39,7 +39,7 @@ var bt = angular
               function navCheck() {
                 scroll = document.body.scrollTop;
 
-                if (scroll > 80) {
+                if (scroll > height) {
                   nav.className = 'nav mini';
                 } else {
                   nav.className = 'nav';

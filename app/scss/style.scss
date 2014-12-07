@@ -118,7 +118,7 @@ body {
 }
 
 .nav {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -137,6 +137,9 @@ body {
     // background-color: $blue;
     // border-bottom: 3px solid darken($blue, 10%);
     color: $white;
+
+    transform: translateY(-80px);
+    margin-top: 80px;
 
     // -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);
     // -moz-box-shadow:    0px 3px 3px 0px rgba(50, 50, 50, 0.1);
@@ -175,7 +178,7 @@ body {
           text-decoration: none;
           color: inherit;
 
-          transition: $trans;
+          transition: 0.3s ease transform;
         }
 
         // &:first-child {
@@ -196,7 +199,7 @@ body {
           // border-bottom: 3px solid darken($blue, 35%);
           // border-bottom: 3px solid $white;
 
-          transition: $trans;
+          transition: 0.3s ease transform;
         }
 
         &:hover {
@@ -204,10 +207,10 @@ body {
           cursor: pointer;
           // border-bottom: 3px solid transparentize($white, 0.5);
 
-          transition: $trans;
+          transition: 0.3s ease transform;
         }
 
-        transition: $trans;
+        transition: 0.3s ease transform;
       }
     }
 
@@ -219,7 +222,7 @@ body {
       }
     }
 
-    transition: $trans;
+    transition: 0.3s ease transform;
   }
 
   .sub-nav {
@@ -237,8 +240,6 @@ body {
     -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);
     -moz-box-shadow:    0px 3px 3px 0px rgba(50, 50, 50, 0.1);
     box-shadow:         0px 3px 3px 0px rgba(50, 50, 50, 0.1);
-
-    transition: $trans;
   }
 
   &.mini {
@@ -246,7 +247,11 @@ body {
 
     .default-nav {
       // height: $mini;
-      background-color: transparentize($blue, 0.1);
+      position: fixed;
+      background-color: transparentize($white, 0.1);
+      color: $black;
+      transform: translateY(0px);
+      margin-top: 0px;
       // border-bottom: 3px solid darken($blue, 10%);
 
       .main-nav {
@@ -268,10 +273,10 @@ body {
       top: 50px;
     }
 
-    transition: $trans;
+    transition: 0.3s ease transform;
   }
 
-  transition: $trans;
+  transition: 0.3s ease transform;
 }
 
 .container {
@@ -635,7 +640,7 @@ body {
       padding-top: 130px;
       padding-bottom: 175px;
       text-align: center;
-      background: $blue;
+      background: $red;
       color: $white;
 
       @supports(height: 100vh) {
@@ -657,7 +662,7 @@ body {
         color: $white;
 
         a {
-          color: darken($blue, 15%);
+          color: darken($red, 15%);
           text-decoration: none;
         }
       }
@@ -702,7 +707,7 @@ body {
             &:before {
               content: '';
               position: absolute;
-              background: darken($blue, 15%);
+              background: darken($red, 15%);
               color: $white;
               top: 50%;
               left: 50%;
