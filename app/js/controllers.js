@@ -192,6 +192,33 @@ bt.controller('homeController', function($scope, $timeout, $sce) {
   $scope.open = function(href) {
     window.open(href, true);
   }
+
+  var tempBlogs = window.localStorage.getItem('blogs');
+  if (null !== tempBlogs) {
+    $scope.blogs = JSON.parse(tempBlogs);
+  } else {
+    $scope.blogs = [];
+  }
+
+  sendRequest('js/blogs.json', displayBlogs);
+
+  function displayBlogs(data) {
+    if (data && data.status === 200 && data.response) {
+      var blogs = JSON.parse(data.response);
+
+      if ($scope.blogs.length) {
+        $scope.blogs = [];
+      }
+
+      angular.forEach(blogs, function(el, i) {
+        el.bodyTrunc = el.body;
+
+        $scope.blogs.push(el);
+      });
+
+      window.localStorage.setItem('blogs', JSON.stringify($scope.blogs));
+    }
+  }
 });
 
 bt.controller('aboutController', function($scope) {

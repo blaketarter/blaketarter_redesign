@@ -97,11 +97,11 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 130px;
+  height: 110px;
   z-index: 100;
   transition: 0.3s ease transform; }
   .nav .default-nav {
-    height: 80px;
+    height: 60px;
     width: 100%;
     position: absolute;
     left: 0;
@@ -114,24 +114,24 @@ body {
     .nav .default-nav .main-nav {
       position: relative;
       width: 60%;
-      height: 80px;
+      height: 60px;
       margin: 0 auto;
       padding: 0;
       list-style: none; }
       .nav .default-nav .main-nav .main-nav-item {
         float: left;
-        height: 80px;
+        height: 60px;
         position: relative;
         width: 25%;
-        line-height: 80px;
+        line-height: 60px;
         transition: 0.3s ease transform; }
         .nav .default-nav .main-nav .main-nav-item .main-nav-item-link {
           display: block;
           position: relative;
-          height: 80px;
+          height: 60px;
           width: 100%;
           text-align: center;
-          line-height: 80px;
+          line-height: 60px;
           text-decoration: none;
           color: inherit;
           text-transform: uppercase;
@@ -160,10 +160,13 @@ body {
     transition: 0.3s ease transform; }
     .nav.mini .default-nav {
       position: fixed;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: white;
       color: #333333;
       transform: translateY(0px);
       margin-top: 0px;
+      -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+      -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+      box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);
       transition: 0.3s ease transform; }
     .nav.mini .sub-nav {
       top: 50px; }
@@ -212,6 +215,7 @@ body {
       .container .home-wrapper .hero .name {
         position: relative;
         margin-top: 200px;
+        letter-spacing: 0.05em;
         font-size: 64px;
         color: #ffffff; }
       .container .home-wrapper .hero .quick-about {
@@ -284,7 +288,7 @@ body {
           width: 33%;
           height: 200px;
           overflow: hidden;
-          box-shadow: 0px -5px 0px #3996D9 inset;
+          box-shadow: 0px -5px 0px #3996D9 inset, 0px 3px 3px 0px rgba(50, 50, 50, 0.1);
           transition: 0.3s ease; }
           .container .home-wrapper .brief .show .tile .title {
             margin: 0;
@@ -299,7 +303,7 @@ body {
             color: #ffffff;
             opacity: 0; }
           .container .home-wrapper .brief .show .tile:hover, .container .home-wrapper .brief .show .tile.active {
-            box-shadow: 0px -200px 0px #3996D9 inset;
+            box-shadow: 0px -200px 0px #3996D9 inset, 0px 3px 3px 0px rgba(50, 50, 50, 0.5);
             color: #ffffff;
             cursor: pointer;
             transition: 0.3s ease; }
@@ -480,5 +484,61 @@ body {
               .container .home-wrapper .codepen .show .pen .inner:hover:after {
                 opacity: 1;
                 transition: 0.3s ease; }
+    .container .home-wrapper .blog {
+      position: relative;
+      padding-top: 130px;
+      padding-bottom: 175px;
+      background-color: #ffffff;
+      text-align: center; }
+      @supports (height: 100vh) {
+        .container .home-wrapper .blog {
+          min-height: 100vh;
+          width: 100vw; } }
+      .container .home-wrapper .blog .title {
+        margin-top: 0;
+        font-size: 36px; }
+      .container .home-wrapper .blog .desc {
+        text-align: center;
+        font-size: 24px;
+        width: 60%;
+        margin: 0 auto; }
+      .container .home-wrapper .blog .show {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 150px; }
+        .container .home-wrapper .blog .show .post {
+          width: 50%;
+          margin: 0 auto;
+          position: relative;
+          margin-bottom: 50px;
+          padding: 12.5px;
+          transition: 0.3s ease; }
+          .container .home-wrapper .blog .show .post:before {
+            content: '';
+            height: 100%;
+            width: 5px;
+            background: #333333;
+            position: absolute;
+            left: -5%;
+            top: 0; }
+          .container .home-wrapper .blog .show .post:hover {
+            cursor: pointer;
+            background: #f1f1f1;
+            -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);
+            -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);
+            box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);
+            transition: 0.3s ease; }
+          .container .home-wrapper .blog .show .post .title {
+            margin: 0;
+            padding: 0;
+            font-size: 26px;
+            color: #333333;
+            font-weight: 500; }
+          .container .home-wrapper .blog .show .post .desc {
+            color: #333333;
+            opacity: 1; }
+          .container .home-wrapper .blog .show .post .link {
+            color: #3996D9;
+            text-decoration: none; }
 
 /*# sourceMappingURL=style.css.map */
