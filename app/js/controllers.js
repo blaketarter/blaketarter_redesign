@@ -4,10 +4,11 @@ bt.controller('navController', function($scope, $location) {
  });
 
  $scope.navOut = false;
+ $scope.navClicked = false;
 
  $scope.toggleNav = function() {
    $scope.navOut = !$scope.navOut;
-   console.log('test');
+   $scope.navClicked = true;
  };
 });
 
