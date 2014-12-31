@@ -69,13 +69,13 @@ var bt = angular
               })();
 
               function navCheck() {
-                scroll = scrollElement.scrollTop;
-
-                if (scroll > height) {
-                  nav.className = 'nav mini';
-                } else {
-                  nav.className = 'nav';
-                }
+                // scroll = scrollElement.scrollTop;
+                //
+                // if (scroll > height) {
+                //   nav.className = 'nav mini';
+                // } else {
+                //   nav.className = 'nav';
+                // }
               }
 
               navCheck();

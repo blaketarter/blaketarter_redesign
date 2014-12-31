@@ -2,6 +2,13 @@ bt.controller('navController', function($scope, $location) {
  $scope.$on('$locationChangeStart', function() {
    $scope.selected = $location.$$url.replace('/', '');
  });
+
+ $scope.navOut = false;
+
+ $scope.toggleNav = function() {
+   $scope.navOut = !$scope.navOut;
+   console.log('test');
+ };
 });
 
 bt.controller('footerController', function($scope) {

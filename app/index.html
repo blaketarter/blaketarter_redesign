@@ -21,23 +21,20 @@
 
     <body>
         <nav id="nav" class="nav" data-ng-controller="navController">
-            <div class="default-nav">
-                <div class="logo"></div>
-                <ul class="main-nav">
-                    <li class="main-nav-item {{(selected === 'home' || selected === '' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#home">Home</a></li>
-                    <li class="main-nav-item {{(selected === 'about' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#about">About</a></li>
-                    <li class="main-nav-item {{(selected === 'work' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#work">Work</a></li>
-                    <li class="main-nav-item {{(selected === 'blog' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#blog">Blog</a></li>
-                </ul>
-                <ul class="social-nav">
-                    <li class="social-nav-item"></li>
-                    <li class="social-nav-item"></li>
-                    <li class="social-nav-item"></li>
-                    <li class="social-nav-item"></li>
-                </ul>
-            </div>
-            <!-- <div id="sub-nav" class="sub-nav"> -->
-            </div>
+          <div class="onscreen">
+            <p class="current" ng-cloak>
+              {{(selected === '') ? 'home' : selected}}
+            </p>
+
+            <div class="toggle icon icon-menu" data-ng-click="toggleNav()"></div>
+          </div>
+
+          <ul class="offscreen {{(navOut) ? 'animated bounceInRight' : 'animated bounceOutRight'}}">
+              <li class="main-nav-item {{(selected === 'home' || selected === '' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#home">Home</a></li>
+              <li class="main-nav-item {{(selected === 'about' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#about">About</a></li>
+              <li class="main-nav-item {{(selected === 'work' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#work">Work</a></li>
+              <li class="main-nav-item {{(selected === 'blog' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#blog">Blog</a></li>
+          </ul>
         </nav>
 
         <div class="container" data-ng-view>
