@@ -117,7 +117,7 @@ body {
   transition: $trans;
 }
 
-.nav {
+nav.nav {
   position: absolute;
   top: 0;
   left: 0;
@@ -312,9 +312,143 @@ body {
   transition: 0.3s ease transform;
 }
 
+footer.nav {
+  height: 600px;
+  background: $blue;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 0;
+  padding-top: 50px;
+  text-align: center;
+
+  .title {
+    font-size: 42px;
+    margin: 0;
+  }
+
+  .subhead {
+    margin: 25px 0 50px 0;
+  }
+
+  .main-nav, .social-nav {
+    position: relative;
+    // left: 10%;
+    width: 50%;
+    height: $mega;
+    // top: 0;
+
+    margin: 0 auto;
+    padding: 0;
+
+    list-style: none;
+
+    .main-nav-item, .social-nav-item {
+      float: left;
+      height: $mega;
+      // margin-right: 50px;
+      position: relative;
+      width: 20%;
+      margin-left: 5%;
+
+      text-align: center;
+      line-height: $mega;
+
+      .main-nav-item-link, .social-nav-item-link {
+        display: block;
+        position: relative;
+        height: $mega;
+        width: 100%;
+
+        text-align: center;
+        line-height: $mega;
+        text-decoration: none;
+        color: inherit;
+
+        text-transform: uppercase;
+        // font-weight: 300;
+
+        transition: 0.3s ease transform;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      transition: 0.3s ease;
+    }
+
+    .main-nav-item {
+      border-bottom: 2px solid white;
+
+      &:hover {
+        border-bottom: 60px solid white;
+        color: $blue;
+
+        transition: 0.3s ease;
+      }
+    }
+  }
+
+  .social-nav {
+    width: 60%;
+    margin-top: 50px;
+  }
+
+  .plug {
+    text-align: center;
+    margin-top: 50px;
+
+
+
+    p.and, p.work, p.play {
+      margin: 0;
+    }
+
+    p.and {
+      font-size: 72px;
+      opacity: 0.2;
+      display: block;
+      width: 10%;
+      margin: 0 auto;
+      z-index: -10;
+
+      transition: 0.3s ease;
+    }
+
+    p.work {
+      transform: translateY(45px);
+    }
+
+    p.play {
+      transform: translateY(-45px);
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    &:hover {
+      p.and {
+        transform: scale(1.1);
+
+        transition: 0.3s ease;
+      }
+    }
+  }
+}
+
 .container {
   // margin-top: 80px;
   color: $black;
+  z-index: 10;
+  position: relative;
+  margin-bottom: 600px;
 
   .home-wrapper {
     position: relative;
