@@ -68,26 +68,81 @@ var bt = angular
                 return scrollElement;
               })();
 
-              function navCheck() {
-                // scroll = scrollElement.scrollTop;
-                //
-                // if (scroll > height) {
-                //   nav.className = 'nav mini';
-                // } else {
-                //   nav.className = 'nav';
-                // }
-              }
+              (function doScrollThings() {
+                function isElementInViewport (el) {
+                  var rect = el.getBoundingClientRect();
 
-              navCheck();
+                  return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+                  );
+                }
+
+                var elemList, el1Animated = false, el2Animated = false, c, cc, time;
+
+                function onVisibilityChange (el1, el2, callback) {
+                  return function () {
+                    console.log(isElementInViewport(el1));
+
+
+                    if (isElementInViewport(el1) && !el1Animated) {
+                      el1Animated = true;
+                      elemList = document.getElementsByClassName('tile');
+
+                      for (c = 0, cc = elemList.length; c < cc; c++) {
+                        time = 250*(c+1);
+
+                        (function() {
+                          var index = c;
+                          setTimeout(function() {
+                            elemList[index].className = 'tile animated bounceIn';
+                          }, time);
+                        })();
+                      }
+                    } else if (isElementInViewport(el2) && !el2Animated) {
+                      el2Animated = true;
+                      elemList = document.getElementsByClassName('pen');
+
+                      for (c = 0, cc = elemList.length; c < cc; c++) {
+                        time = 250*(c+1);
+                        
+                        (function() {
+                          var index = c;
+                          setTimeout(function() {
+                            elemList[index].className = 'pen animated bounceIn';
+                          }, time);
+                        })();
+                      }
+                    }
+                  }
+                }
+
+                var animateElem1 = document.getElementsByClassName('tile')[0],
+                    animateElem2 = document.getElementsByClassName('pen')[0];
+
+                var handler = onVisibilityChange(animateElem1, animateElem2);
+
+                if (window.addEventListener) {
+                  addEventListener('DOMContentLoaded', handler, false);
+                  addEventListener('load', handler, false);
+                  addEventListener('scroll', handler, false);
+                  addEventListener('resize', handler, false);
+                } else if (window.attachEvent)  {
+                  attachEvent('onDOMContentLoaded', handler); // IE9+ :(
+                  attachEvent('onload', handler);
+                  attachEvent('onscroll', handler);
+                  attachEvent('onresize', handler);
+                  }
+              })();
 
               outdatedBrowser({
                 bgColor: '#f25648',
                 color: '#ffffff',
                 lowerThan: 'transform',
                 languagePath: ''
-              })
-
-              window.onscroll = navCheck;
+              });
             });
          });
         });

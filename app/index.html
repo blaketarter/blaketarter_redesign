@@ -37,10 +37,10 @@
               <li class="main-nav-item {{(selected === 'work' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#work">Work</a></li>
               <li class="main-nav-item {{(selected === 'blog' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#blog">Blog</a></li>
           </ul>
+        <div class="clickoff {{(navOut) ? 'active' : ''}}" data-ng-click="toggleNav()"></div>
         </nav>
 
-        <div class="container" data-ng-view>
-        </div>
+        <div class="container" data-ng-view></div>
 
         <footer id="footer" data-ng-controller="footerController" class="nav">
           <h6 class="title">Congrats</h6>
