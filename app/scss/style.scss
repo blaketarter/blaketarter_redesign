@@ -87,15 +87,74 @@ src: url('../font/blaketarter.svg?10712306#blaketarter') format('svg');
   background: transparentize(darken($blue, 20%), 0.4);
 }
 
-.icon-menu {
-  &::before{
-    content: '';
-    box-shadow: 0 7px 0 2px #ffffff, 0 15px 0 2px #ffffff, 0 23px 0 2px #ffffff;
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 20px;
-  }
+// .icon-menu {
+//   &::before{
+//     content: '';
+//     box-shadow: 0 7px 0 2px #ffffff, 0 15px 0 2px #ffffff, 0 23px 0 2px #ffffff;
+//     position: absolute;
+//     top: 3px;
+//     left: 3px;
+//     width: 20px;
+//   }
+// }
+
+.menu-toggle {
+  position: relative;
+  display:  inline-block;
+  width: 40px;
+  height: 30px;
+  margin: 25px;
+}
+
+.menu-toggle span {
+  margin: 0 auto;
+  position: relative;
+  top: 15px;
+  transition-duration: 0s;
+  transition-delay: .2s;
+}
+
+.menu-toggle span:before, .menu-toggle span:after {
+  position: absolute;
+  content: '';
+}
+
+.menu-toggle span, .menu-toggle span:before, .menu-toggle span:after {
+  width: 25px;
+  height: 5px;
+  background-color: $white;
+  display: block;
+}
+
+.menu-toggle span:before {
+  margin-top: -8px;
+  transition-property: margin, transform;
+  transition-duration: .2s;
+  transition-delay: .2s, 0;
+}
+
+.menu-toggle span:after {
+  margin-top: 8px;
+  transition-property: margin, transform;
+  transition-duration: .2s;
+  transition-delay: .2s, 0;
+}
+
+.menu-toggle-active span {
+  background-color: rgba(0,0,0,0.0);
+  transition-delay: .2s;
+}
+
+.menu-toggle-active span:before {
+  margin-top: 0;
+  transform: rotate(45deg);
+  transition-delay: 0, .2s;
+}
+
+.menu-toggle-active span:after {
+  margin-top: 0;
+  transform: rotate(-45deg);
+  transition-delay: 0, .2s;
 }
 
 body {
@@ -146,8 +205,8 @@ nav.nav {
 
   .onscreen {
     height: $navHeight;
-    width: 200px;
-    background: white;
+    // width: 200px;
+    // background: white;
     position: relative;
     z-index: 10;
 
@@ -196,6 +255,10 @@ nav.nav {
     margin: 0;
     list-style: none;
 
+    -webkit-box-shadow: -3px 0px 3px 0px rgba(50, 50, 50, 0.2);
+    -moz-box-shadow:    -3px 0px 3px 0px rgba(50, 50, 50, 0.2);
+    box-shadow:         -3px 0px 3px 0px rgba(50, 50, 50, 0.2);
+
     &.main-nav {
       padding-left: 0;
 
@@ -205,10 +268,22 @@ nav.nav {
         margin-bottom: 25px;
         line-height: 60px;
         padding-left: 50px;
+        width: 70%;
+        margin-left: 9%;
 
         &:hover {
           cursor: pointer;
+          background: rgba(255, 255, 255, 0.4);
+          transition: $trans;
+          // @extend .animated;
+          // @extend .bounceIn;
         }
+
+        &.selected {
+          border-left: 5px solid $blue;
+        }
+
+        transition: $trans;
       }
     }
 
@@ -573,7 +648,7 @@ footer.nav {
           &:hover, &.active {
             box-shadow: -0px -200px 0px $blue inset, 0px 3px 3px 0px rgba(50, 50, 50, 0.5);
             color: $white;
-            cursor: pointer;
+            cursor: pointer;;
 
             .title {
               color: $white;
@@ -824,6 +899,7 @@ footer.nav {
 
             &:hover {
               cursor: pointer;
+
               &:before {
                 height: 500px;
                 width: 500px;

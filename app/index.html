@@ -22,11 +22,13 @@
     <body>
         <nav id="nav" class="nav" data-ng-controller="navController">
           <div class="onscreen">
-            <p class="current" ng-cloak>
+            <!-- <p class="current" ng-cloak>
               {{(selected === '') ? 'home' : selected}}
-            </p>
+            </p> -->
 
-            <div class="toggle icon {{(navOut) ? 'icon-cancel' : 'icon-menu'}}" data-ng-click="toggleNav()"></div>
+            <div class="toggle menu-toggle {{(navOut) ? 'menu-toggle-active' : ''}}" data-ng-click="toggleNav()">
+              <span></span>
+            </div>
           </div>
 
           <ul class="offscreen main-nav {{(navOut) ? 'animated bounceInRight' : (navClicked) ? 'animated bounceOutRight' : ''}}">
