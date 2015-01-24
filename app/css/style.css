@@ -2287,7 +2287,7 @@ nav.nav {
       height: 35px;
       width: 35px;
       margin-right: 25px;
-      background: #3996D9;
+      background: #333333;
       color: #ffffff;
       margin-top: 12.5px;
       text-align: center;
@@ -2298,7 +2298,7 @@ nav.nav {
       transition: 0.3s ease; }
       nav.nav .onscreen .toggle:hover {
         cursor: pointer;
-        background: #247cbb;
+        background: #1a1a1a;
         z-index: 10;
         transition: 0.3s ease; }
   nav.nav .offscreen {

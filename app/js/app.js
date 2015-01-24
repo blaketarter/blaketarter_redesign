@@ -84,36 +84,35 @@ var bt = angular
 
                 function onVisibilityChange (el1, el2, callback) {
                   return function () {
-                    console.log(isElementInViewport(el1));
+                    if (window.page && window.page === 'home') {
+                      if (isElementInViewport(el1) && !el1Animated) {
+                        el1Animated = true;
+                        elemList = document.getElementsByClassName('tile');
 
+                        for (c = 0, cc = elemList.length; c < cc; c++) {
+                          time = 250*(c+1);
 
-                    if (isElementInViewport(el1) && !el1Animated) {
-                      el1Animated = true;
-                      elemList = document.getElementsByClassName('tile');
+                          (function() {
+                            var index = c;
+                            setTimeout(function() {
+                              elemList[index].className = 'tile animated bounceIn';
+                            }, time);
+                          })();
+                        }
+                      } else if (isElementInViewport(el2) && !el2Animated) {
+                        el2Animated = true;
+                        elemList = document.getElementsByClassName('pen');
 
-                      for (c = 0, cc = elemList.length; c < cc; c++) {
-                        time = 250*(c+1);
+                        for (c = 0, cc = elemList.length; c < cc; c++) {
+                          time = 250*(c+1);
 
-                        (function() {
-                          var index = c;
-                          setTimeout(function() {
-                            elemList[index].className = 'tile animated bounceIn';
-                          }, time);
-                        })();
-                      }
-                    } else if (isElementInViewport(el2) && !el2Animated) {
-                      el2Animated = true;
-                      elemList = document.getElementsByClassName('pen');
-
-                      for (c = 0, cc = elemList.length; c < cc; c++) {
-                        time = 250*(c+1);
-                        
-                        (function() {
-                          var index = c;
-                          setTimeout(function() {
-                            elemList[index].className = 'pen animated bounceIn';
-                          }, time);
-                        })();
+                          (function() {
+                            var index = c;
+                            setTimeout(function() {
+                              elemList[index].className = 'pen animated bounceIn';
+                            }, time);
+                          })();
+                        }
                       }
                     }
                   }

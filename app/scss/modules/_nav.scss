@@ -84,7 +84,7 @@ nav.nav {
       height: 35px;
       width: 35px;
       margin-right: 25px;
-      background: $blue;
+      background: $black;
       color: $white;
       margin-top: 12.5px;
       text-align: center;
@@ -95,7 +95,7 @@ nav.nav {
 
       &:hover {
         cursor: pointer;
-        background: darken($blue, 10%);
+        background: darken($black, 10%);
         z-index: 10;
 
         transition: $trans;

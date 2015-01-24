@@ -33,6 +33,8 @@ bt.controller('homeController', function($scope, $timeout, $sce) {
       s = 0,
       sl = skillset.length;
 
+  window.page = 'home';
+
   // e = element to scroll to, d = time to scroll in ms
   function scrollTo(e,d){if(d<0)return;var h=document.documentElement;if(h.scrollTop===0){var t=h.scrollTop;++h.scrollTop;h=t+1===h.scrollTop--?h:document.body;}if(typeof e==="object")e=e.offsetTop;scrollToX(h,h.scrollTop,e,0,1/d,20);}function scrollToX(e,a,b,t,v,s){if(t<0||t>1||v<=0)return;k=t-1;e.scrollTop=a-(a-b)*(k*k*k+1);t+=v*s;setTimeout(function(){scrollToX(e,a,b,t,v,s);},s);}
 
@@ -230,7 +232,7 @@ bt.controller('homeController', function($scope, $timeout, $sce) {
 });
 
 bt.controller('aboutController', function($scope) {
-
+  window.page = 'about';
 });
 
 bt.controller('workController', function($scope) {
