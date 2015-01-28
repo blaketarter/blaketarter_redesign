@@ -22,6 +22,7 @@ bt.controller('navController', function($scope, $location) {
    console.log(href);
 
    $location.path(href);
+   window.scrollTo(0, 0);
    e.preventDefault();
  }
 
