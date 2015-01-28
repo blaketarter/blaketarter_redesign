@@ -1,1 +1,24 @@
-<h1>{{::'Work'}}</h1>
+<section class="work-wrapper">
+  <section class="hero">
+    <div class="hero-center">
+      <h1 class="title">Work</h1>
+      <p class="subtitle">Stuff I Do.</p>
+    </div>
+  </section>
+
+  <section class="work">
+    <div class="show">
+      <div ng-repeat="item in works" class="work-item">
+        <div class="image" style="background-image: url('{{item.img}}');"></div>
+        <div class="circle"></div>
+        <div class="info">
+          <h3 class="title">{{item.title}}</h3>
+          <p class="body">
+            {{item.bodyTrunc}}
+          </p>
+        </div>
+        <a class="link" href="#/work/{{item.id}}">Read the rest</a>
+      </div>
+    </div>
+  </section>
+</section>

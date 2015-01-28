@@ -239,7 +239,7 @@ bt.controller('homeController', function($scope, $timeout, $sce) {
       }
 
       angular.forEach(blogs, function(el, i) {
-        el.bodyTrunc = el.body;
+        el.bodyTrunc = el.snippet;
 
         $scope.blogs.push(el);
       });
@@ -254,9 +254,141 @@ bt.controller('aboutController', function($scope) {
 });
 
 bt.controller('workController', function($scope) {
+  var tempWorks = window.localStorage.getItem('works');
+  if (null !== tempWorks) {
+    $scope.works = JSON.parse(tempWorks);
+  } else {
+    $scope.works = [];
+  }
 
+  function sendRequest(url,callback,postData) {
+      var req = createXMLHTTPObject();
+      if (!req) return;
+      var method = (postData) ? "POST" : "GET";
+      req.open(method,url,true);
+      // req.setRequestHeader('User-Agent','XMLHTTP/1.0');
+      if (postData)
+          req.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+      req.onreadystatechange = function () {
+          if (req.readyState != 4) return;
+          if (req.status != 200 && req.status != 304) {
+  //          alert('HTTP error ' + req.status);
+              return;
+          }
+          callback(req);
+      }
+      if (req.readyState == 4) return;
+      req.send(postData);
+  }
+
+  var XMLHttpFactories = [
+      function () {return new XMLHttpRequest()},
+      function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+      function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+      function () {return new ActiveXObject("Microsoft.XMLHTTP")}
+  ];
+
+  function createXMLHTTPObject() {
+      var xmlhttp = false;
+      for (var i=0;i<XMLHttpFactories.length;i++) {
+          try {
+              xmlhttp = XMLHttpFactories[i]();
+          }
+          catch (e) {
+              continue;
+          }
+          break;
+      }
+      return xmlhttp;
+  }
+
+  sendRequest('js/works.json', displayWorks);
+
+  function displayWorks(data) {
+    if (data && data.status === 200 && data.response) {
+      var works = JSON.parse(data.response);
+
+      if ($scope.works.length) {
+        $scope.works = [];
+      }
+
+      angular.forEach(works, function(el, i) {
+        el.bodyTrunc = el.snippet;
+
+        $scope.works.push(el);
+      });
+
+      window.localStorage.setItem('works', JSON.stringify($scope.works));
+    }
+  }
 });
 
 bt.controller('blogController', function($scope) {
+  var tempBlogs = window.localStorage.getItem('blogs');
+  if (null !== tempBlogs) {
+    $scope.blogs = JSON.parse(tempBlogs);
+  } else {
+    $scope.blogs = [];
+  }
 
+  function sendRequest(url,callback,postData) {
+      var req = createXMLHTTPObject();
+      if (!req) return;
+      var method = (postData) ? "POST" : "GET";
+      req.open(method,url,true);
+      // req.setRequestHeader('User-Agent','XMLHTTP/1.0');
+      if (postData)
+          req.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+      req.onreadystatechange = function () {
+          if (req.readyState != 4) return;
+          if (req.status != 200 && req.status != 304) {
+  //          alert('HTTP error ' + req.status);
+              return;
+          }
+          callback(req);
+      }
+      if (req.readyState == 4) return;
+      req.send(postData);
+  }
+
+  var XMLHttpFactories = [
+      function () {return new XMLHttpRequest()},
+      function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+      function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+      function () {return new ActiveXObject("Microsoft.XMLHTTP")}
+  ];
+
+  function createXMLHTTPObject() {
+      var xmlhttp = false;
+      for (var i=0;i<XMLHttpFactories.length;i++) {
+          try {
+              xmlhttp = XMLHttpFactories[i]();
+          }
+          catch (e) {
+              continue;
+          }
+          break;
+      }
+      return xmlhttp;
+  }
+
+  sendRequest('js/blogs.json', displayBlogs);
+
+  function displayBlogs(data) {
+    if (data && data.status === 200 && data.response) {
+      var blogs = JSON.parse(data.response);
+
+      if ($scope.blogs.length) {
+        $scope.blogs = [];
+      }
+
+      angular.forEach(blogs, function(el, i) {
+        el.bodyTrunc = el.snippet;
+
+        $scope.blogs.push(el);
+      });
+
+      window.localStorage.setItem('blogs', JSON.stringify($scope.blogs));
+    }
+  }
 });

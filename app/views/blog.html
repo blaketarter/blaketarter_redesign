@@ -1,1 +1,20 @@
-<h1>{{::'Blog'}}</h1>
+<section class="blog-wrapper">
+  <section class="hero">
+    <div class="hero-center">
+      <h1 class="title">Blog</h1>
+      <p class="subtitle">Read some words.</p>
+    </div>
+  </section>
+
+  <section class="blog">
+    <div class="show">
+      <div ng-repeat="post in blogs | limitTo:5" class="post">
+        <h3 class="title">{{post.title}}</h3>
+        <p class="body">
+          {{post.bodyTrunc}}
+        </p>
+        <a class="link" href="#/blog/{{post.id}}">Read the rest</a>
+      </div>
+    </div>
+  </section>
+</section>
