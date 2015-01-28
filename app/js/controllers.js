@@ -9,7 +9,25 @@ bt.controller('navController', function($scope, $location) {
  $scope.toggleNav = function() {
    $scope.navOut = !$scope.navOut;
    $scope.navClicked = true;
+   console.log('click');
  };
+
+ var navItems = document.getElementsByClassName('main-nav-item'),
+    ni;
+
+ function navigate(e) {
+   var el = e.target,
+       href = el.getElementsByClassName('main-nav-item-link')[0].getAttribute("href").replace('#', '');
+
+   console.log(href);
+
+   $location.path(href);
+   e.preventDefault();
+ }
+
+ for (ni=0, nn=navItems.length; ni < nn; ni++) {
+   navItems[ni].addEventListener('click', navigate, false);
+ }
 });
 
 bt.controller('footerController', function($scope) {

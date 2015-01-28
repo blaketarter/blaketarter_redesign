@@ -32,10 +32,10 @@
           </div>
 
           <ul class="offscreen main-nav {{(navOut) ? 'animated bounceInRight' : (navClicked) ? 'animated bounceOutRight' : ''}}">
-              <li class="main-nav-item {{(selected === 'home' || selected === '' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#home">Home</a></li>
-              <li class="main-nav-item {{(selected === 'about' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#about">About</a></li>
-              <li class="main-nav-item {{(selected === 'work' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#work">Work</a></li>
-              <li class="main-nav-item {{(selected === 'blog' ? 'selected' : '')}}"><a class="main-nav-item-link" href="#blog">Blog</a></li>
+              <li class="main-nav-item {{(selected === 'home' || selected === '' ? 'selected' : '')}}" data-ng-click="toggleNav()"><a class="main-nav-item-link" href="#home">Home</a></li>
+              <li class="main-nav-item {{(selected === 'about' ? 'selected' : '')}}" data-ng-click="toggleNav()"><a class="main-nav-item-link" href="#about">About</a></li>
+              <li class="main-nav-item {{(selected === 'work' ? 'selected' : '')}}" data-ng-click="toggleNav()"><a class="main-nav-item-link" href="#work">Work</a></li>
+              <li class="main-nav-item {{(selected === 'blog' ? 'selected' : '')}}" data-ng-click="toggleNav()"><a class="main-nav-item-link" href="#blog">Blog</a></li>
           </ul>
         <div class="clickoff {{(navOut) ? 'active' : ''}}" data-ng-click="toggleNav()"></div>
         </nav>
