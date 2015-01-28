@@ -3133,7 +3133,8 @@ footer.nav {
     max-width: 1440px;
     text-align: center; }
     .work-wrapper .work .work-item .link {
-      color: #3996D9; }
+      color: #3996D9;
+      text-decoration: none; }
     .work-wrapper .work .work-item:nth-child(1), .work-wrapper .work .work-item:nth-child(2), .work-wrapper .work .work-item:nth-child(3) {
       height: 300px;
       transition: 0.3s ease; }
