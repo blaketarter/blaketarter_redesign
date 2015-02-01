@@ -28,14 +28,48 @@ bt.factory('blogFactory', function($http, $q, localStorageService, showdownFacto
     return title.replace(/\s/g, '-').toLowerCase();
   }
 
-  factory.getStatic = function(id) {
-    var filePath = 'static/blog/',
-        extension = '.md',
+  factory.get = function(query) {
+    var key = Object.keys(query)[0],
+        value = query[key],
+        result = null,
         i, ii;
 
     for (i = 0, ii = factory.list.length; i < ii; i++) {
-      if (id === factory.list[i].id) {
-        filePath += factory.getMachineReadable(factory.list[i].title) + extension;
+      if (value == factory.list[i][key]) {
+        result = factory.list[i];
+      }
+    }
+
+    return result;
+  };
+
+  factory.getByMachineReadable = function(machine) {
+    var key = 'title',
+        value = machine,
+        result = null,
+        i, ii;
+
+    for (i = 0, ii = factory.list.length; i < ii; i++) {
+      if (value == factory.getMachineReadable(factory.list[i][key])) {
+        result = factory.list[i];
+      }
+    }
+
+    return result;
+  };
+
+  factory.getStatic = function(query) {
+    var filePath = 'static/blog/',
+        extension = '.md',
+        i, ii, blog;
+
+    if (typeof query === 'string') {
+      filePath += query + extension;
+    } else {
+      blog = factory.get(query);
+
+      if (blog) {
+        filePath += factory.getMachineReadable(blog.title) + extension;
       }
     }
 
@@ -78,14 +112,48 @@ bt.factory('workFactory', function($http, $q, localStorageService, showdownFacto
     return title.replace(/\s/g, '-').toLowerCase();
   }
 
-  factory.getStatic = function(id) {
-    var filePath = 'static/work/',
-        extension = '.md',
+  factory.get = function(query) {
+    var key = Object.keys(query)[0],
+        value = query[key],
+        result = null,
         i, ii;
 
     for (i = 0, ii = factory.list.length; i < ii; i++) {
-      if (id === factory.list[i].id) {
-        filePath += factory.getMachineReadable(factory.list[i].title) + extension;
+      if (value == factory.list[i][key]) {
+        result = factory.list[i];
+      }
+    }
+
+    return result;
+  };
+
+  factory.getByMachineReadable = function(machine) {
+    var key = 'title',
+        value = machine,
+        result = null,
+        i, ii;
+
+    for (i = 0, ii = factory.list.length; i < ii; i++) {
+      if (value == factory.getMachineReadable(factory.list[i][key])) {
+        result = factory.list[i];
+      }
+    }
+
+    return result;
+  };
+
+  factory.getStatic = function(query) {
+    var filePath = 'static/work/',
+        extension = '.md',
+        i, ii, work;
+
+    if (typeof query === 'string') {
+      filePath += query + extension;
+    } else {
+      work = factory.get(query);
+
+      if (work) {
+        filePath += factory.getMachineReadable(work.title) + extension;
       }
     }
 

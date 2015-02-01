@@ -22,6 +22,10 @@ var bt = angular
                     templateUrl: 'views/blog.html',
                     controller: 'blogController'
                 })
+                .when('/blog/:blogTitle', {
+                  templateUrl: 'views/blog-item.html',
+                  controller: 'blogItemController'
+                })
                 .otherwise({
                     redirectTo: '/404'
                 });

@@ -271,9 +271,22 @@ bt.controller('blogController', function($scope, blogFactory) {
   blogFactory.fetch().then(function(data) {
     console.log(data);
     $scope.blogs = blogFactory.list;
-
-    blogFactory.getStatic(1).then(function(data) {
-      console.log(data);
-    });
   });
+});
+
+bt.controller('blogItemController', function($scope, $routeParams, blogFactory) {
+  window.page = 'blog-item';
+  $scope.blogs = blogFactory.list;
+
+  if ($routeParams.blogTitle) {
+    var blog = blogFactory.getByMachineReadable($routeParams.blogTitle);
+
+    if (blog) {
+      $scope.blog = blog;
+
+      blogFactory.getStatic($routeParams.blogTitle).then(function(data) {
+        document.getElementsByClassName('blog-content')[0].innerHTML = data;
+      });
+    }
+  }
 });
