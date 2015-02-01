@@ -11,7 +11,7 @@
       <div ng-repeat="post in blogs | limitTo:5" class="post">
         <h3 class="title">{{post.title}}</h3>
         <p class="body">
-          {{post.bodyTrunc}}
+          {{post.snippet}}
         </p>
         <a class="link" href="#/blog/{{post.id}}">Read the rest</a>
       </div>

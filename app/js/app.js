@@ -1,5 +1,5 @@
 var bt = angular
-        .module('bt', ['ngRoute'])
+        .module('bt', ['ngRoute', 'LocalStorageModule'])
         .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
             $routeProvider
                 .when('/', {
