@@ -5,6 +5,7 @@ section.hero {
   width: 100vw;
   overflow: hidden;
   text-align: $hero-align;
+  margin-bottom: (100 - $hero-height);
 
   .clip {
     display: flex;
@@ -46,7 +47,7 @@ section.hero {
   }
 
   .subtitle {
-    font-size: $h3;
+    font-size: $h2;
   }
 
   .polygon {

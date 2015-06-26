@@ -1,0 +1,47 @@
+.about {
+  margin: (2 * $default-margin) 0;
+
+  .title {
+    font-size: $h2;
+    text-align: $title-align;
+    color: $black;
+  }
+
+  .brief {
+    color: $black;
+    text-align: $body-align;
+    padding: 0 $default-margin;
+    font-size: $body-copy;
+    line-height: $body-line-height;
+  }
+
+  .list {
+    position: relative;
+    overflow: hidden;
+    margin: $default-margin;
+
+    .about-item {
+      position: relative;
+      overflow: hidden;
+      margin: $default-margin 0;
+      display: flex;
+      align-items: center;
+
+      .icon {
+        float: left;
+        margin-right: $default-margin;
+        height: 15vh;
+        width: 30vh;
+        background: $grey;
+        flex: none;
+      }
+
+      .copy {
+        line-height: $body-line-height;
+        font-size: $body-copy;
+        color: $black;
+        margin: 0;
+      }
+    }
+  }
+}

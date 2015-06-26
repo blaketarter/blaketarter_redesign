@@ -1,0 +1,68 @@
+.featured {
+  position: relative;
+  padding: $default-margin;
+  margin: (2 * $default-margin) 0;
+  // padding-bottom: 0;
+  background: $primary;
+
+  > .title {
+    text-align: $title-align;
+    font-size: $h3;
+    color: $white;
+    margin-top: 0;
+  }
+
+  .post {
+    position: relative;
+    background: $white;
+    height: 30vh;
+    overflow: hidden;
+    // margin: 10% 0;
+
+    .image {
+      float: left;
+      height: 30vh;
+      width: 30vh;
+      background: $grey;
+      margin-right: $default-margin;
+    }
+
+    .copy {
+      padding-right: $default-margin;
+      overflow: hidden;
+      height: 100%;
+
+      > .title,
+      > .body,
+      > .read-more {
+        font-size: $body-copy;
+        color: $black;
+      }
+
+      > .body {
+        line-height: $body-line-height;
+      }
+
+      > .read-more {
+        position: absolute;
+        bottom: 25px;
+      }
+    }
+
+    .link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      bottom: 100%;
+      color: transparent;
+      text-indent: -9999px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
