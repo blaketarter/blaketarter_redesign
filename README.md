@@ -1,2 +1,0 @@
-blaketarter_redesign
-====================
