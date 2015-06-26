@@ -1,0 +1,43 @@
+$primary: #f7931e;
+$secondary: #dddddd;
+$white: #ffffff;
+$black: #222222;
+
+$background: #eeeeee;
+
+$hover-darken: 10%;
+$hover-primary: darken($primary, $hover-darken);
+$hover-secondary: darken($secondary, $hover-darken);
+
+$nav-height: 50px;
+$button-height: 50px;
+
+$small: 640px;
+$medium: 1024px;
+$large: 1440px;
+$xlarge: 1920px;
+
+$z1: 1;
+$z2: 10;
+$z3: 50;
+$z4: 100;
+$z5: 1000;
+
+$trans: .3s ease;
+
+$shadow1: 1px 0px 5px transparentize($black, .5);
+$shadow2: 1px 0px 5px transparentize($black, .3);
+$shadow3: 1px 0px 5px transparentize($black, .1);
+
+$h1: 64px;
+$h2: 42px;
+$h3: 32px;
+$h4: 24px;
+$h5: 20px;
+$body-copy: 16px;
+$small-copy: 14px;
+
+$body-align: left;
+$center-align: left;
+
+$font: 'Roboto', 'Helvetica', 'Arial', 'sans serif';

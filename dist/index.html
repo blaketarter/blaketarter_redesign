@@ -1,0 +1,45 @@
+<!DOCTYPE html><!--[if IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
+<!--[if IE 9]><html lang="en" class="ie9 no-js"><![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>new_blaketarter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="vendor/outdatedbrowser.css">
+    <script src="vendor/modernizr.js"></script><!--[if lt IE 9]><script src="vendor/html5shiv.js"></script><![endif]-->
+  </head>
+  <body>
+    <nav id="main-nav" class="nav"></nav>
+    <section id="hero" class="hero">
+      <div class="clip">
+        <div class="center">
+          <h1 class="title">Hi, I’m Blake Tarter.</h1>
+          <p class="subtitle">A Kansas City based web developer</p>
+        </div>
+        <div class="scroll-down-center">
+          <div class="scroll-down"></div>
+        </div>
+      </div>
+      <div class="polygon"></div>
+    </section>
+    <div id="outdated">
+      <h6>Your browser is out-of-date!</h6>
+      <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+      <p class="last"><a id="btnCloseUpdateBrowser" href="#" title="Close">&times;</a></p>
+    </div>
+    <script src="vendor/outdatedbrowser.js"></script>
+    <script src="vendor/picturefill.min.js"></script>
+    <script type="text/javascript">
+      outdatedBrowser({
+        bgColor: '#f25648',
+        color: '#ffffff',
+        lowerThan: 'transform',
+        languagePath: ''
+      });
+    </script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

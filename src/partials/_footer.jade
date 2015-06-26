@@ -1,0 +1,19 @@
+
+#outdated
+  h6 Your browser is out-of-date!
+  p
+    | Update your browser to view this website correctly. 
+    a#btnUpdateBrowser(href='http://outdatedbrowser.com/') Update my browser now 
+  p.last
+    a#btnCloseUpdateBrowser(href='#', title='Close') &times;
+
+script(src='vendor/outdatedbrowser.js')
+script(src='vendor/picturefill.min.js')
+script(type='text/javascript').
+  outdatedBrowser({
+    bgColor: '#f25648',
+    color: '#ffffff',
+    lowerThan: 'transform',
+    languagePath: ''
+  });
+script(src="js/scripts.js")
