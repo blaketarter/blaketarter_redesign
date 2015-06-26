@@ -1,6 +1,7 @@
 section.hero {
   position: relative;
-  height: $hero-height;;
+  height: $hero-height;
+  width: 100%;
   width: 100vw;
   overflow: hidden;
   text-align: $hero-align;
@@ -55,5 +56,49 @@ section.hero {
     background-color: $primary;
     transform: translateX(-5vw) rotate(1deg);
     transform-origin: bottom right;
+  }
+
+  .scroll-down-center {
+    position: absolute;
+    bottom: 7vh;
+    width: 100%;
+
+    .scroll-down {
+      background-image: url('../images/mouse.png');
+      background-position: 0;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 50px;
+      margin: 0 auto;
+      width: 25px;
+      position: relative;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:before {
+        content: '•';
+        color: #fff;
+        text-align: center;
+        width: 100%;
+        display: block;
+        animation: scroll 2s infinite;
+        position: relative;
+        top: 30px;
+        will-change: transform, opacity;
+      }
+    }
+  }
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-30px);
+    opacity: 0;
   }
 }
