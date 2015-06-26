@@ -1,0 +1,22 @@
+.work {
+  position: relative;
+  margin: (2 * $default-margin) 0;
+
+  .clip > .title {
+    font-size: $h2;
+    text-align: $title-align;
+    color: $black;
+  }
+
+  .brief {
+    color: $black;
+    text-align: $body-align;
+    padding: 0 $default-margin;
+    font-size: $body-copy;
+    line-height: $body-line-height;
+  }
+
+  .clip {
+    background: secondary;
+  }
+}
