@@ -19,4 +19,43 @@
   .clip {
     background: secondary;
   }
+
+  .work-list {
+    position: relative;
+    overflow: hidden;
+    margin: $default-margin;
+
+    .item {
+      position: relative;
+      float: left;
+      width: 47.5%;
+      margin-bottom: $default-margin;
+      background: $white;
+
+      .title {
+        text-align: left;
+        font-size: $body-copy;
+        color: $grey;
+        margin-left: $default-margin * 2;
+        margin-right: $default-margin * 2;
+      }
+
+      .clip {
+        position: relative;
+        padding: $default-margin * 2;
+        padding-top: $default-margin * 4;
+        background: $primary;
+        font-size: $body-copy;
+        clip-path: polygon(100% 0, 100% 0, 100% 100%, 0 100%, 0 20%);
+      }
+
+      &:nth-child(odd) {
+        margin-right: 2.5%;
+      }
+
+      &:nth-child(even) {
+        margin-left: 2.5%;
+      }
+    }
+  }
 }
