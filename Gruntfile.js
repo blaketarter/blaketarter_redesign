@@ -30,6 +30,19 @@ module.exports = function (grunt) {
             },
             'dist': { 'src': '<%= dist %>/css/styles.css' }
         },
+        criticalcss: {
+          custom: {
+            options: {
+              url: 'http://blaketarter_redesign.dev/dist/',
+              width: 3000,
+              height: 2000,
+              outputfile: '<%= dist %>/css/critical.styles.css',
+              filename: '<%= dist %>/css/styles.css',
+              buffer: 800 * 1024,
+              ignoreConsole: false
+            }
+          }
+        },
         jade: {
             'compile': {
                 'options': {
@@ -103,7 +116,8 @@ module.exports = function (grunt) {
                 'files': '<%= src %>/scss/**/*.scss',
                 'tasks': [
                     'sass',
-                    'autoprefixer'
+                    'autoprefixer',
+                    'criticalcss'
                 ]
             },
             'jade': {
@@ -123,6 +137,7 @@ module.exports = function (grunt) {
         'jade',
         'sass',
         'autoprefixer',
+        'criticalcss',
         'imagemin',
         'jshint',
         'uglify',
